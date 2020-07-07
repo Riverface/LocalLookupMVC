@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj": {}
+    "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj": {
+    "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
+        "projectUniqueName": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
         "projectName": "LocalLookupMVC.Solution",
-        "projectPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
+        "projectPath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
         "packagesPath": "C:\\Users\\sonos\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\obj\\",
+        "outputPath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -52,11 +52,35 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "PagedList.Mvc": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.6.10, )"
             }
           },
           "imports": [

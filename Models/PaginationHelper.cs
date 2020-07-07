@@ -1,13 +1,12 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Viewer.Models
+namespace LocalLookupMVC.Solution.Models
 {
     public static class PaginationHelper
     {
