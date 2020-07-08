@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Storage.Models;
+using LocalLookupMVC.Solution.Models;
 using Microsoft.EntityFrameworkCore;
 
 

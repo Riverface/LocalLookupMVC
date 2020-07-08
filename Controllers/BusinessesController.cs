@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System;
+using LocalLookupMVC.Solution.Models;
 
 namespace LocalLookupMVC.Controllers
 {
@@ -25,8 +26,9 @@ namespace LocalLookupMVC.Controllers
         public IActionResult Index(int page = 1, int pageCount = 2)
         {
             IQueryable<Object> charQuery = Business.GetBusinesses().AsQueryable();
-            if(page <= 0 ){
-               page = 1;
+            if (page <= 0)
+            {
+                page = 1;
             }
             ViewBag.pageCount = pageCount;
             charQuery = PaginationHelper.GetPaged(charQuery, page, pageCount);
@@ -38,7 +40,7 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.TraitId = new SelectList(_db.Traits, "TraitId", "Name");
+            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
             return View();
         }
 
@@ -47,20 +49,13 @@ namespace LocalLookupMVC.Controllers
         public async Task<ActionResult> Create(Business Business, int traitId)
         {
             _db.Businesses.Add(Business);
-            if (traitId != 0)
-            {
-                _db.BusinessTraits.Add(new BusinessTrait() { TraitId = traitId, BusinessId = Business.BusinessId });
-            }
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
         {
-            var thisBusiness = _db.Businesses
-                .Include(Business => Business.Traits)
-                .ThenInclude(join => join.Trait)
-                .FirstOrDefault(Business => Business.BusinessId == id);
+            var thisBusiness = _db.Businesses;
             return View(thisBusiness);
         }
 
@@ -68,7 +63,7 @@ namespace LocalLookupMVC.Controllers
         public ActionResult Edit(int id)
         {
             var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
-            ViewBag.TraitId = new SelectList(_db.Traits, "TraitId", "Name");
+            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
             return View(thisBusiness);
         }
 
@@ -79,14 +74,6 @@ namespace LocalLookupMVC.Controllers
             _db.Entry(Business).State = EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        [Authorize]
-        public ActionResult AddTrait(int id)
-        {
-            var thisBusiness = _db.Businesses.FirstOrDefault(Business => Business.BusinessId == id);
-            ViewBag.TraitId = new SelectList(_db.Traits, "TraitId", "Name");
-            return View(thisBusiness);
         }
 
         [Authorize]
@@ -102,16 +89,6 @@ namespace LocalLookupMVC.Controllers
         {
             var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
             _db.Businesses.Remove(thisBusiness);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult DeleteTrait(int joinId)
-        {
-            var joinEntry = _db.BusinessTraits.FirstOrDefault(entry => entry.BusinessTraitId == joinId);
-            _db.BusinessTraits.Remove(joinEntry);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

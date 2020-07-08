@@ -9,7 +9,7 @@ namespace LocalLookupMVC.Solution.Models
         public virtual DbSet<City> Cities { get; set; }
         public LocalLookupMVCContext(DbContextOptions<LocalLookupMVCContext> options) : base(options)
         {
-
+        
         }
 
     }
