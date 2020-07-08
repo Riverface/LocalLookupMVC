@@ -9,14 +9,14 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System;
 
-namespace Viewer.Controllers
+namespace LocalLookupMVC.Controllers
 {
-    public class BusinessController : Controller
+    public class BusinessesController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ViewerContext _db;
+        private readonly LocalLookupMVCContext _db;
 
-        public BusinessesController(UserManager<ApplicationUser> userManager, ViewerContext db)
+        public BusinessesController(UserManager<ApplicationUser> userManager, LocalLookupMVCContext db)
         {
             _userManager = userManager;
             _db = db;
