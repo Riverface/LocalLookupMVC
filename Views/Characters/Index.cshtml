@@ -1,0 +1,71 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Viewer.Models;
+@model List<Viewer.Models.Character>;
+
+  <div>
+    <div class='entryLabel'>
+      <h1>Characters</h1>
+    </div>
+    <div class='entry'>
+
+        @if (Model.Any())
+        {
+          <table>
+                <tr>
+                  <th> Name  </th>
+                  <th> Biography  </th>
+                  <th> MIGHT </th>
+                  <th> SPRY</th>
+                  <th> JUDGE</th>
+                  <th> ECHO</th>
+                  <th> MAGNE </th>
+                  <th> TUNE  </th>
+                  <th> Level  </th>
+                  <th> Exp</th>
+                </tr>
+            @foreach (Character Character in Model)
+            {
+              <tr style='padding: 10px; border:1px solid black'>
+                    <td style="border:1px solid black; height:50px; width:100px; ">@Html.ActionLink($"{Character.Name}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width:600px; ">@Html.ActionLink($"{Character.Bio}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Might}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Spryness}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Judgement}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Echo}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Magnetism}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Fortune}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.Level}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                    <td style="border:1px solid black; height:50px; width: 100px;">@Html.ActionLink($"{Character.experience}", "Details", "Characters", new {id=Character.CharacterId})</td>
+                </tr>            
+            }
+            </table>
+        }
+        else
+        {
+          <h3>There are no characters on this page or characters haven't been added.</h3>
+        }
+         <p>@Html.ActionLink("Back a Page", "Index", "Characters", new{page = ViewBag.page - 1})</p>
+         <p>@Html.ActionLink("Next Page", "Index", "Characters", new{page = ViewBag.page + 1})</p>
+         <p>@Html.ActionLink("Back a Page", "Index", "Characters", new{page = ViewBag.page - 1})</p>
+         <p>@Html.ActionLink("1", "Index", "Characters", new{page = ViewBag.page, pageCount = 1 })</p>
+         <p>@Html.ActionLink("2", "Index", "Characters", new{page = ViewBag.page, pageCount = 2})</p>
+         <p>@Html.ActionLink("3", "Index", "Characters", new{page = ViewBag.page, pageCount = 3})</p>
+         <p>@Html.ActionLink("Next Page", "Index", "Characters", new{page = ViewBag.page + 1})</p>
+    </div>
+  </div>
+
+  <div>
+      @if(User.Identity.IsAuthenticated)
+      {
+        <div class='entryLabel propertyLabel'>
+          Characters menu
+        </div>
+        <div class='property'>
+          <p>@Html.ActionLink("Add new Character", "Create")</p>
+          <p>@Html.ActionLink("Home", "Index", "Home")</p>
+        </div>
+      }
+  </div>

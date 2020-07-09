@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Viewer.Models.Trait
+
+<div>
+  <div class='entryLabel'>
+    <h2>Edit this Trait: @Html.DisplayFor(model => model.Name)
+    </h2>
+  </div>
+  <div class='entry'>
+
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.TraitId)
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => model.Name, new{htmlAttributes = new{  @required = "required"}})
+      <input type="submit" value="Save" />
+    }
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Viewer.Models.Character
+
+<div>
+  <div class='entryLabel'>
+    <h4>Edit this Character: @Html.DisplayFor(model => model.Name)</h4>
+  </div>
+
+  <div class='entry'>  
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.CharacterId)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name, new{htmlAttributes = new{  @required = "required"}})
+        <input type="submit" value="Save" />
+    }
+  </div>
+</div>
