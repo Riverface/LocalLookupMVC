@@ -2,10 +2,10 @@
   Layout = "_Layout";
 }
 
-@model Viewer.Models.Trait;
+@model LocalLookupMVC.Solution.Models.City;
 
 <div class='jumbotron'>
-  <h2>Trait Details</h2>
+  <h2>City Details</h2>
 </div>
 
 <div class="">
@@ -34,25 +34,25 @@
   </table>
   <div class=' entry'>
     <hr />
-    @if(@Model.Characters.Count == 0)
+    @if(@Model.Businesss.Count == 0)
     {
-      <p>This Trait is not used yet :(</p>
+      <p>This City is not used yet :(</p>
     }
     else
     {
-      <h4>Characters with this trait:</h4>
+      <h4>Businesss with this city:</h4>
       <ul>
-        @foreach(var join in Model.Characters)
+        @foreach(var join in Model.Businesss)
         {
-          <li>@Html.ActionLink($"{join.Character.Name}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Might}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Spryness}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Judgement}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Echo}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Magnetism}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Fortune}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Bio}", "Details", "Characters", new {id=join.CharacterId})</li>
-          <li>@Html.ActionLink($"{join.Character.Name}", "Details", "Characters", new {id=join.CharacterId})</li>
+          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Might}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Spryness}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Judgement}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Echo}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Magnetism}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Fortune}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Bio}", "Details", "Businesss", new {id=join.BusinessId})</li>
+          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesss", new {id=join.BusinessId})</li>
         }
       </ul>
     }
@@ -61,13 +61,13 @@
   @if(User.Identity.IsAuthenticated)
   {
     <div class='entryLabel propertyLabel'>
-      Trait Links
+      City Links
     </div>
 
     <div class='property'>
-      <p>@Html.ActionLink("Back to Traits", "Index")</p>
-      <p>@Html.ActionLink("Edit Trait", "Edit", new { id = Model.TraitId })</p>
-      <p>@Html.ActionLink("Delete Trait", "Delete", new { id = Model.TraitId })</p>
+      <p>@Html.ActionLink("Back to Citys", "Index")</p>
+      <p>@Html.ActionLink("Edit City", "Edit", new { id = Model.CityId })</p>
+      <p>@Html.ActionLink("Delete City", "Delete", new { id = Model.CityId })</p>
     </div>
   }
 </div>

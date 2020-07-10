@@ -2,12 +2,12 @@
   Layout = "_Layout";
 }
 
-@model Viewer.Models.Trait
+@model LocalLookupMVC.Solution.Models.City
 
 <div>
 
   <div class='entryLabel'>
-    <h4>Add a new Trait</h4>
+    <h4>Add a new City</h4>
   </div>
   <div class='entry'>
 
@@ -27,8 +27,8 @@
       @Html.EditorFor(model=>model.Magnetism)
       @Html.LabelFor(model=>model.Fortune)
       @Html.EditorFor(model=>model.Fortune)
-      <input type="submit" value="Add new Trait"/>
+      <input type="submit" value="Add new City"/>
     }
   </div>
 </div>
-<p>@Html.ActionLink("Show all Traits", "Index")</p>
+<p>@Html.ActionLink("Show all Citys", "Index")</p>

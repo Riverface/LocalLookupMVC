@@ -2,17 +2,17 @@
   Layout = "_Layout";
 }
 
-@model Viewer.Models.Character
+@model LocalLookupMVC.Solution.Models.Business
 
 <div>
   <div class='entryLabel'>
-    <h4>Edit this Character: @Html.DisplayFor(model => model.Name)</h4>
+    <h4>Edit this Business: @Html.DisplayFor(model => model.Name)</h4>
   </div>
 
   <div class='entry'>  
     @using (Html.BeginForm())
     {
-        @Html.HiddenFor(model => model.CharacterId)
+        @Html.HiddenFor(model => model.BusinessId)
         @Html.LabelFor(model => model.Name)
         @Html.EditorFor(model => model.Name, new{htmlAttributes = new{  @required = "required"}})
         <input type="submit" value="Save" />

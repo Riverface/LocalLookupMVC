@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+@model LocalLookupMVC.Solution.Models.Business
+
+<div>
+  <div class="entryLabel">
+  <h2>Business Details</h2>
+</div>
+  
+<div class='entry'>
+  <hr />
+  <h3>
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+  </h3>
+  @if(@Model.Citys.Count == 0)
+  {
+    <p>This Business does not belong to any Citys</p>
+  }
+  else
+  {
+    <h4>Citys the Business belongs to:</h4>
+    <ul>
+    @foreach(var join in Model.Citys)
+    {
+      <li>@join.City.Name</li>
+      @using (Html.BeginForm("DeleteCity", "Businesss"))
+      {
+        @Html.Hidden("joinId", @join.BusinessCityId)
+        if(User.Identity.IsAuthenticated)
+        {
+          <input type="submit" value="Delete" />
+        }
+      }
+    }
+    </ul>
+  }
+</div>
+
+<div>
+    @if(User.Identity.IsAuthenticated)
+    {
+      <div class='propertyLabel entryLabel'>
+        Do something to this Business:
+      </div>
+      <div class='property' style="height: auto;">
+        <div>
+          <p>@Html.ActionLink("Add a City", "AddCity", new { id = Model.BusinessId })</p>
+          <p>@Html.ActionLink("Delete Business", "Delete", new { id = Model.BusinessId })</p>
+          <p>@Html.ActionLink("Edit Business", "Edit", new { id = Model.BusinessId })</p>
+        </div>
+      </div>
+    }
+</div>

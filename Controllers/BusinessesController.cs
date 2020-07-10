@@ -40,13 +40,13 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            ViewBag.CityId = new SelectList(_db.Cities, "CityId", "Name");
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> Create(Business Business, int traitId)
+        public async Task<ActionResult> Create(Business Business, int cityId)
         {
             _db.Businesses.Add(Business);
             _db.SaveChanges();
@@ -63,12 +63,12 @@ namespace LocalLookupMVC.Controllers
         public ActionResult Edit(int id)
         {
             var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            ViewBag.CityId = new SelectList(_db.Cities, "CityId", "Name");
             return View(thisBusiness);
         }
 
         [HttpPost]
-        public ActionResult Edit(Business Business, int TraitId)
+        public ActionResult Edit(Business Business, int CityId)
         {
 
             _db.Entry(Business).State = EntityState.Modified;

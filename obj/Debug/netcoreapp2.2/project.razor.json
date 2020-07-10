@@ -2961,18 +2961,33 @@
   "RootNamespace": "LocalLookupMVC.Solution",
   "Documents": [
     {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\AddTrait.cshtml",
+      "TargetPath": "Views\\Cities.cs\\AddTrait.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\Edit.cshtml",
+      "TargetPath": "Views\\Cities.cs\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Accounts\\Register.cshtml",
       "TargetPath": "Views\\Accounts\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views copy\\_ViewStart.cshtml",
-      "TargetPath": "Views copy\\_ViewStart.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities copy\\Create.cshtml",
+      "TargetPath": "Views\\Cities copy\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Traits\\Index.cshtml",
-      "TargetPath": "Views\\Traits\\Index.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities\\Details.cshtml",
+      "TargetPath": "Views\\Cities\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities\\Create.cshtml",
+      "TargetPath": "Views\\Cities\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2986,8 +3001,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Traits\\Edit.cshtml",
-      "TargetPath": "Views\\Traits\\Edit.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\Create.cshtml",
+      "TargetPath": "Views\\Cities.cs\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3001,8 +3016,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\Create.cshtml",
-      "TargetPath": "Views\\Characters\\Create.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities\\Edit.cshtml",
+      "TargetPath": "Views\\Cities\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3011,38 +3026,48 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\Details.cshtml",
+      "TargetPath": "Views\\Cities.cs\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities copy\\Details.cshtml",
+      "TargetPath": "Views\\Cities copy\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\Delete.cshtml",
+      "TargetPath": "Views\\Cities.cs\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Shared\\_CookieConsentPartial.cshtml",
       "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views copy\\_ViewImports.cshtml",
-      "TargetPath": "Views copy\\_ViewImports.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities copy\\Edit.cshtml",
+      "TargetPath": "Views\\Cities copy\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views copy\\Home\\Privacy.cshtml",
-      "TargetPath": "Views copy\\Home\\Privacy.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities copy\\Delete.cshtml",
+      "TargetPath": "Views\\Cities copy\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Traits\\Delete.cshtml",
-      "TargetPath": "Views\\Traits\\Delete.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities\\Index.cshtml",
+      "TargetPath": "Views\\Cities\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views copy\\Home\\Index.cshtml",
-      "TargetPath": "Views copy\\Home\\Index.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities.cs\\Index.cshtml",
+      "TargetPath": "Views\\Cities.cs\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\Details.cshtml",
-      "TargetPath": "Views\\Characters\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Traits\\Create.cshtml",
-      "TargetPath": "Views\\Traits\\Create.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities copy\\Index.cshtml",
+      "TargetPath": "Views\\Cities copy\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3056,28 +3081,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\Index.cshtml",
-      "TargetPath": "Views\\Characters\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\AddTrait.cshtml",
-      "TargetPath": "Views\\Characters\\AddTrait.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Traits\\Details.cshtml",
-      "TargetPath": "Views\\Traits\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\Edit.cshtml",
-      "TargetPath": "Views\\Characters\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Characters\\Delete.cshtml",
-      "TargetPath": "Views\\Characters\\Delete.cshtml",
+      "FilePath": "d:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\Views\\Cities\\Delete.cshtml",
+      "TargetPath": "Views\\Cities\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

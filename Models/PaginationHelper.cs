@@ -10,12 +10,12 @@ namespace LocalLookupMVC.Solution.Models
 {
     public static class PaginationHelper
     {
-        public static IQueryable<Object> GetPaged(IQueryable<Object> characterQuery, int page, int pageSize = 1)
+        public static IQueryable<Object> GetPaged(IQueryable<Object> businessQuery, int page, int pageSize = 1)
         {
-            int TotalCount = characterQuery.Count();
+            int TotalCount = businessQuery.Count();
             double pageCount = (int)Math.Ceiling(Convert.ToDouble(TotalCount) / pageSize);
             int Skip = (page - 1) * pageSize;
-            IQueryable<Object> Results = (page > 0) ? characterQuery.Skip((page - 1) * pageSize).Take(pageSize) : characterQuery;
+            IQueryable<Object> Results = (page > 0) ? businessQuery.Skip((page - 1) * pageSize).Take(pageSize) : businessQuery;
             return Results;
         }
     }
