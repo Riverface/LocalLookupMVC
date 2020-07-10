@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace LocalLookupMVC.Solution.Models
+namespace LocalLookupMVC.Models
 {
     public class LocalLookupMVCContext : IdentityDbContext<ApplicationUser>
     {

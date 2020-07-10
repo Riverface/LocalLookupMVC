@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LocalLookupMVC.Solution.Migrations
+namespace LocalLookupMVC.Migrations
 {
     public partial class initial : Migration
     {

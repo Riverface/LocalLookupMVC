@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System;
-using LocalLookupMVC.Solution.Models;
+using LocalLookupMVC.Models;
 
 namespace LocalLookupMVC.Controllers
 {

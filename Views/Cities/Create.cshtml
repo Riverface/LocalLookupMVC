@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model LocalLookupMVC.Solution.Models.City
+@model LocalLookupMVC.Models.City
 
 <div>
 
@@ -13,22 +13,9 @@
 
     @using (Html.BeginForm())
     {
-      @Html.LabelFor(model => model.Name)
-      @Html.TextBoxFor(model => model.Name, new{@required = "required"})
-      @Html.LabelFor(model=>model.Might)
-      @Html.EditorFor(model=>model.Might)
-      @Html.LabelFor(model=>model.Spryness)
-      @Html.EditorFor(model=>model.Spryness)
-      @Html.LabelFor(model=>model.Judgement)
-      @Html.EditorFor(model=>model.Judgement)
-      @Html.LabelFor(model=>model.Echo)
-      @Html.EditorFor(model=>model.Echo)
-      @Html.LabelFor(model=>model.Magnetism)
-      @Html.EditorFor(model=>model.Magnetism)
-      @Html.LabelFor(model=>model.Fortune)
-      @Html.EditorFor(model=>model.Fortune)
+
       <input type="submit" value="Add new City"/>
     }
   </div>
 </div>
-<p>@Html.ActionLink("Show all Citys", "Index")</p>
+<p>@Html.ActionLink("Show all Cities", "Index")</p>

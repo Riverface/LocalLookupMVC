@@ -369,9 +369,9 @@
             number: "Please enter a valid number.",
             digits: "Please enter only digits.",
             equalTo: "Please enter the same value again.",
-            maxlength: $.validator.format("Please enter no more than {0} businesss."),
-            minlength: $.validator.format("Please enter at least {0} businesss."),
-            rangelength: $.validator.format("Please enter a value between {0} and {1} businesss long."),
+            maxlength: $.validator.format("Please enter no more than {0} businesses."),
+            minlength: $.validator.format("Please enter at least {0} businesses."),
+            rangelength: $.validator.format("Please enter a value between {0} and {1} businesses long."),
             range: $.validator.format("Please enter a value between {0} and {1}."),
             max: $.validator.format("Please enter a value less than or equal to {0}."),
             min: $.validator.format("Please enter a value greater than or equal to {0}."),
@@ -1026,7 +1026,7 @@
             },
 
             // See https://api.jquery.com/category/selectors/, for CSS
-            // meta-businesss that should be escaped in order to be used with JQuery
+            // meta-businesses that should be escaped in order to be used with JQuery
             // as a literal part of a name/id or any selector.
             escapeCssMeta: function(string) {
                 return string.replace(/([\\!"#$%&'()*+,./:;<=>?@\[\]^`{|}~])/g, "\\$1");

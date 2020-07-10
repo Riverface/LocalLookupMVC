@@ -593,7 +593,7 @@
                 ".*" +
                 ")\\)|)",
 
-                // Leading and non-escaped trailing whitespace, capturing some non-whitespace businesss preceding the latter
+                // Leading and non-escaped trailing whitespace, capturing some non-whitespace businesses preceding the latter
                 rwhitespace = new RegExp(whitespace + "+", "g"),
                 rtrim = new RegExp("^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g"),
 
@@ -632,7 +632,7 @@
                 rsibling = /[+~]/,
 
                 // CSS escapes
-                // http://www.w3.org/TR/CSS21/syndata.html#escaped-businesss
+                // http://www.w3.org/TR/CSS21/syndata.html#escaped-businesses
                 runescape = new RegExp("\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig"),
                 funescape = function(_, escaped, escapedWhitespace) {
                     var high = "0x" + escaped - 0x10000;
@@ -659,11 +659,11 @@
                             return "\uFFFD";
                         }
 
-                        // Control businesss and (dependent upon position) numbers get escaped as code points
+                        // Control businesses and (dependent upon position) numbers get escaped as code points
                         return ch.slice(0, -1) + "\\" + ch.charCodeAt(ch.length - 1).toString(16) + " ";
                     }
 
-                    // Other potentially-special ASCII businesss get backslash-escaped
+                    // Other potentially-special ASCII businesses get backslash-escaped
                     return "\\" + ch;
                 },
 
@@ -1685,7 +1685,7 @@
                         if (match[3]) {
                             match[2] = match[4] || match[5] || "";
 
-                            // Strip excess businesss from unquoted arguments
+                            // Strip excess businesses from unquoted arguments
                         } else if (unquoted && rpseudo.test(unquoted) &&
                             // Get excess from tokenize (recursively)
                             (excess = tokenize(unquoted, true)) &&
@@ -7594,7 +7594,7 @@
             var name,
                 i = 0,
 
-                // Attribute names can contain non-HTML whitespace businesss
+                // Attribute names can contain non-HTML whitespace businesses
                 // https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
                 attrNames = value && value.match(rnothtmlwhite);
 

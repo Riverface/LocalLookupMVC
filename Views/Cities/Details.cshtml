@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model LocalLookupMVC.Solution.Models.City;
+@model LocalLookupMVC.Models.City;
 
 <div class='jumbotron'>
   <h2>City Details</h2>
@@ -14,49 +14,6 @@
   </div>
         @Html.LabelFor(model => model.Name)
         @Html.ValueFor(model=>model.Name)
-  <table>
-      <tr>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Might)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Spryness)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Judgement)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Echo)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Magnetism)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Fortune)</td>
-      </tr>
-      <tr>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Might)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Spryness)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Judgement)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Echo)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Magnetism)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Fortune)</td>
-      </tr>
-  </table>
-  <div class=' entry'>
-    <hr />
-    @if(@Model.Businesss.Count == 0)
-    {
-      <p>This City is not used yet :(</p>
-    }
-    else
-    {
-      <h4>Businesss with this city:</h4>
-      <ul>
-        @foreach(var join in Model.Businesss)
-        {
-          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Might}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Spryness}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Judgement}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Echo}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Magnetism}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Fortune}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Bio}", "Details", "Businesss", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesss", new {id=join.BusinessId})</li>
-        }
-      </ul>
-    }
-  </div>
 </div>
   @if(User.Identity.IsAuthenticated)
   {
@@ -65,7 +22,7 @@
     </div>
 
     <div class='property'>
-      <p>@Html.ActionLink("Back to Citys", "Index")</p>
+      <p>@Html.ActionLink("Back to Cities", "Index")</p>
       <p>@Html.ActionLink("Edit City", "Edit", new { id = Model.CityId })</p>
       <p>@Html.ActionLink("Delete City", "Delete", new { id = Model.CityId })</p>
     </div>

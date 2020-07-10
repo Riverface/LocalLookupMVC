@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model LocalLookupMVC.Solution.Models.City
+@model LocalLookupMVC.Models.City
 
 <div>
   <div class='entryLabel'>
@@ -13,9 +13,7 @@
 
     @using (Html.BeginForm())
     {
-      @Html.HiddenFor(model => model.CityId)
-      @Html.LabelFor(model => model.Name)
-      @Html.EditorFor(model => model.Name, new{htmlAttributes = new{  @required = "required"}})
+
       <input type="submit" value="Save" />
     }
 
