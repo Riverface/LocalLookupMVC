@@ -13,7 +13,7 @@ using LocalLookupMVC.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace LocalLookupMVC.Solution
+namespace LocalLookupMVC
 {
     public class Startup
     {

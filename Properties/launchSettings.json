@@ -15,7 +15,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
         },
-        "LocalLookupMVC.Solution": {
+        "LocalLookupMVC": {
             "commandName": "Project",
             "launchBrowser": true,
             "applicationUrl": "https://localhost:5004;http://localhost:5005",
