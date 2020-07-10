@@ -25,14 +25,14 @@ namespace LocalLookupMVC.Controllers
 
         public IActionResult Index(int page = 1, int pageCount = 2)
         {
-            IQueryable<Object> charQuery = Business.GetBusinesses().AsQueryable();
+            IQueryable<Object> bizQuery = Business.GetBusinesses().AsQueryable();
             if (page <= 0)
             {
                 page = 1;
             }
             ViewBag.pageCount = pageCount;
-            charQuery = PaginationHelper.GetPaged(charQuery, page, pageCount);
-            List<Business> results = charQuery.Cast<Business>().ToList();
+            bizQuery = PaginationHelper.GetPaged(bizQuery, page, pageCount);
+            List<Business> results = bizQuery.Cast<Business>().ToList();
             ViewBag.page = page;
             return View(results);
         }

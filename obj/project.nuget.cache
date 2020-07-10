@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b7zpN0SsYEpDyJXxZoDUSv8W3agVWe/9OHVOredbcATuLaADD9uN5xuDUwmXitW6umfLp5Aw5bVdWclrNeJr0Q==",
+  "dgSpecHash": "bB/brERtLIUxWPAyeV4JPT+okldiShQIgGmMRNXb1Bdah1QNfG08kznCvSxj+xP2Dwk9ptAdyps0IJ6aFHiwdg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
+  "projectFilePath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC\\LocalLookupMVC.Solution.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sonos\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\sonos\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

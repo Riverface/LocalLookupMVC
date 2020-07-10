@@ -16,20 +16,10 @@
         @Html.ValueFor(model=>model.Name)
   <table>
       <tr>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Might)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Spryness)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Judgement)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Echo)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Magnetism)</td>
-          <td style="border:1px solid black">@Html.LabelFor(model=>model.Fortune)</td>
+
       </tr>
       <tr>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Might)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Spryness)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Judgement)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Echo)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Magnetism)</td>
-        <td style="border:1px solid black">@Html.ValueFor(model=>model.Fortune)</td>
+
       </tr>
   </table>
   <div class=' entry'>
@@ -44,15 +34,7 @@
       <ul>
         @foreach(var join in Model.Businesses)
         {
-          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Might}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Spryness}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Judgement}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Echo}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Magnetism}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Fortune}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Bio}", "Details", "Businesses", new {id=join.BusinessId})</li>
-          <li>@Html.ActionLink($"{join.Business.Name}", "Details", "Businesses", new {id=join.BusinessId})</li>
+
         }
       </ul>
     }

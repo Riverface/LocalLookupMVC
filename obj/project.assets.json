@@ -12318,11 +12318,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
+      "projectUniqueName": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC\\LocalLookupMVC.Solution.csproj",
       "projectName": "LocalLookupMVC.Solution",
-      "projectPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC.Solution.csproj",
+      "projectPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC\\LocalLookupMVC.Solution.csproj",
       "packagesPath": "C:\\Users\\sonos\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\obj\\",
+      "outputPath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
