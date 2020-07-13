@@ -3,7 +3,7 @@
 }
 
 @using LocalLookupMVC.Models;
-@model List<LocalLookupMVC.Models.City>;
+@model List<LocalLookupMVC.Models.Business>;
 
 <div class='jumbotron'>
  <h1>Cities</h1>
@@ -19,15 +19,17 @@
     {
       <h3>No Cities have been added yet!</h3>
     } 
+    else{
 
-    @foreach (City City in Model)
-    {
-      <li>@Html.ActionLink($"{City.Name}", "Details", new { id = City.CityId })</li>
-    }
+      @foreach (Business Business in Model)
+      {
+        <li>@Html.ActionLink($"{Business.Name}", "Details", new { id = Business.CityId })</li>
+      }
     
+    }
     @if(User.Identity.IsAuthenticated)
     {
-      <p>@Html.ActionLink("Add new City", "Create")</p>
+      <p>@Html.ActionLink("Add new Business", "Create")</p>
     }
         <li>Page: @ViewBag.page</li>
          <p>@Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1})</p>

@@ -8,46 +8,47 @@ namespace LocalLookupMVC.Models
     {
         public int BusinessId { get; set; }
         public int CityId { get; set; }
+        public string Name { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Blurb { get; set; }
 
-        public static List<City> GetBusinesses()
+        public static List<Business> GetBusinesses()
         {
-            var apiCallTask = CityApiHelper.GetAll();
+            var apiCallTask = BusinessApiHelper.GetAll();
             var result = apiCallTask.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-            List<City> cityList = JsonConvert.DeserializeObject<List<City>>(jsonResponse.ToString());
+            List<Business> BusinessList = JsonConvert.DeserializeObject<List<Business>>(jsonResponse.ToString());
 
-            return cityList;
+            return BusinessList;
         }
 
-        public static City GetDetails(int id)
+        public static Business GetDetails(int id)
         {
-            var apiCallTask = CityApiHelper.Get(id);
+            var apiCallTask = BusinessApiHelper.Get(id);
             var result = apiCallTask.Result;
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-            City city = JsonConvert.DeserializeObject<City>(jsonResponse.ToString());
-            return city;
+            Business business = JsonConvert.DeserializeObject<Business>(jsonResponse.ToString());
+            return business;
         }
 
-        public static void Post(City city)
+        public static void Post(Business business)
         {
-            string jsonCity = JsonConvert.SerializeObject(city);
-            var apiCallTask = CityApiHelper.Post(jsonCity);
+            string jsonBusiness = JsonConvert.SerializeObject(business);
+            var apiCallTask = BusinessApiHelper.Post(jsonBusiness);
         }
 
-        public static void Put(City city)
+        public static void Put(Business business)
         {
-            string jsonCity = JsonConvert.SerializeObject(city);
-            var apiCallTask = CityApiHelper.Put(city.CityId, jsonCity);
+            string jsonBusiness = JsonConvert.SerializeObject(business);
+            var apiCallTask = BusinessApiHelper.Put(business.BusinessId, jsonBusiness);
         }
 
         public static void Delete(int id)
         {
-            var apiCallTask = CityApiHelper.Delete(id);
+            var apiCallTask = BusinessApiHelper.Delete(id);
         }
 
 
