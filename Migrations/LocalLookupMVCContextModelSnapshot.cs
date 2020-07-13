@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupMVC.Migrations
+namespace LocalLookupMVC.Solution.Migrations
 {
     [DbContext(typeof(LocalLookupMVCContext))]
     partial class LocalLookupMVCContextModelSnapshot : ModelSnapshot
@@ -77,6 +77,8 @@ namespace LocalLookupMVC.Migrations
                     b.Property<string>("Blurb");
 
                     b.Property<int>("CityId");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("PhoneNumber");
 

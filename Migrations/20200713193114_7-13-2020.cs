@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LocalLookupMVC.Migrations
+namespace LocalLookupMVC.Solution.Migrations
 {
-    public partial class initial : Migration
+    public partial class _7132020 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,6 +54,7 @@ namespace LocalLookupMVC.Migrations
                     BusinessId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     CityId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     Blurb = table.Column<string>(nullable: true)
@@ -69,9 +70,8 @@ namespace LocalLookupMVC.Migrations
                 {
                     CityId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    Blurb = table.Column<string>(nullable: true)
+                    ZipCode = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

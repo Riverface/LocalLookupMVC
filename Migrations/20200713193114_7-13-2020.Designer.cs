@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupMVC.Migrations
+namespace LocalLookupMVC.Solution.Migrations
 {
     [DbContext(typeof(LocalLookupMVCContext))]
-    [Migration("20200710213931_UserAccountsPlease")]
-    partial class UserAccountsPlease
+    [Migration("20200713193114_7-13-2020")]
+    partial class _7132020
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -79,6 +79,8 @@ namespace LocalLookupMVC.Migrations
                     b.Property<string>("Blurb");
 
                     b.Property<int>("CityId");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("PhoneNumber");
 

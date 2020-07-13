@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
+
 namespace LocalLookupMVC.Models
 {
     public class Business
@@ -17,9 +18,13 @@ namespace LocalLookupMVC.Models
         {
             var apiCallTask = BusinessApiHelper.GetAll();
             var result = apiCallTask.Result;
-
-            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-            List<Business> BusinessList = JsonConvert.DeserializeObject<List<Business>>(jsonResponse.ToString());
+            List<Business> BusinessList = new List<Business>();
+            if (result.Length == 0) { return BusinessList; }
+            else
+            {
+                JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+                BusinessList =  new List<Business>(JsonConvert.DeserializeObject<List<Business>>(jsonResponse.ToString()));
+            }
 
             return BusinessList;
         }
