@@ -26,8 +26,9 @@ namespace LocalLookupMVC.Controllers
         public IActionResult Index(int page = 1, int pageCount = 2)
         {
             IQueryable<Object> charQuery = City.GetCities().AsQueryable();
-            if(page <= 0 ){
-               page = 1;
+            if (page <= 0)
+            {
+                page = 1;
             }
             ViewBag.pageCount = pageCount;
             charQuery = PaginationHelper.GetPaged(charQuery, page, pageCount);
@@ -39,17 +40,17 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            ViewBag.CityId = new SelectList(City.GetCities(), "CityId", "Name");
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> Create(City City, int traitId)
+        public ActionResult Create(City city, int CityId)
         {
-            _db.Cities.Add(City);
-            _db.SaveChanges();
+            City.Post(city);
             return RedirectToAction("Index");
+
         }
 
         public ActionResult Details(int id)
@@ -61,16 +62,16 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var thisCity = _db.Cities.FirstOrDefault(Cities => Cities.CityId == id);
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            City thisCity = City.GetDetails(id);
+
             return View(thisCity);
         }
 
         [HttpPost]
-        public ActionResult Edit(City City, int TraitId)
+        public ActionResult Edit(City city)
         {
-            _db.Entry(City).State = EntityState.Modified;
-            _db.SaveChanges();
+
+            City.Put(city);
             return RedirectToAction("Index");
         }
 
@@ -78,30 +79,30 @@ namespace LocalLookupMVC.Controllers
         // public ActionResult AddTrait(int id)
         // {
         //     var thisCity = _db.Cities.FirstOrDefault(City => City.CityId == id);
-        //     ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+        //     ViewBag.CityId = new SelectList(_db.Cities, "CityId", "Name");
         //     return View(thisCity);
         // }
 
         // [Authorize]
         // [HttpPost]
-        // public ActionResult AddTrait(City City, int TraitId)
+        // public ActionResult AddTrait(City City, int CityId)
         // {
 
-        //     if (TraitId != 0)
+        //     if (CityId != 0)
         //     {
-        //         var compareCitytrait = _db.CityCities.FirstOrDefault(trait => trait.TraitId == TraitId);
+        //         var compareCitytrait = _db.CityCities.FirstOrDefault(trait => trait.CityId == CityId);
         //         foreach (CityTrait compareTrait in City.Cities)
         //         {
         //             if (City.CityId == compareCitytrait.CityId)
         //             {
-        //                 if (compareCitytrait.TraitId == TraitId)
+        //                 if (compareCitytrait.CityId == CityId)
         //                 {
 
         //                     return RedirectToAction("Index", "Cities");
         //                 }
         //             }
         //         }
-        //         _db.CityCities.Add(new CityTrait() { TraitId = TraitId, CityId = City.CityId });
+        //         _db.CityCities.Add(new CityTrait() { CityId = CityId, CityId = City.CityId });
         //         _db.SaveChanges();
 
         //     }
@@ -111,7 +112,7 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Delete(int id)
         {
-            var thisCity = _db.Cities.FirstOrDefault(Cities => Cities.CityId == id);
+            City thisCity = City.GetDetails(id);
             return View(thisCity);
         }
 
@@ -119,9 +120,7 @@ namespace LocalLookupMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var thisCity = _db.Cities.FirstOrDefault(Cities => Cities.CityId == id);
-            _db.Cities.Remove(thisCity);
-            _db.SaveChanges();
+            City.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -129,7 +128,7 @@ namespace LocalLookupMVC.Controllers
         // [HttpPost]
         // public ActionResult DeleteTrait(int joinId)
         // {
-        //     var joinEntry = _db.CityCities.FirstOrDefault(entry => entry.CityTraitId == joinId);
+        //     var joinEntry = _db.CityCities.FirstOrDefault(entry => entry.CityCityId == joinId);
         //     _db.CityCities.Remove(joinEntry);
         //     _db.SaveChanges();
         //     return RedirectToAction("Index");

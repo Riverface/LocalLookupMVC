@@ -6,7 +6,7 @@
 @model List<LocalLookupMVC.Models.Business>;
 
 <div class='jumbotron'>
- <h1>Cities</h1>
+ <h1>Businesses</h1>
 </div>
 <div>
   <div class='entryLabel'>
@@ -18,7 +18,7 @@
     
     @if (@Model == null)
     {
-      <h3>No Cities have been added yet!</h3>
+      <h3>No Businesses have been added yet!</h3>
     } 
     else{
 
@@ -33,13 +33,14 @@
       <p>@Html.ActionLink("Add new Business", "Create")</p>
     }
         <li>Page: @ViewBag.page</li>
-         <p>@Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1})</p>
+         <p>@Html.ActionLink("Back a Page", "Index", "Businesses", new{page = ViewBag.page - 1})</p>
          
-         <p>@Html.ActionLink("1", "Index", "Cities", new{page = ViewBag.page, pageCount = 1 })</p>
+         <p>@Html.ActionLink("1", "Index", "Businesses", new{page = ViewBag.page, pageCount = 1 })</p>
          
-         <p>@Html.ActionLink("2", "Index", "Cities", new{page = ViewBag.page, pageCount = 2})</p>
+         <p>@Html.ActionLink("2", "Index", "Businesses", new{page = ViewBag.page, pageCount = 2})</p>
          
-         <p>@Html.ActionLink("3", "Index", "Cities", new{page = ViewBag.page, pageCount = 3})</p>
-         <p>@Html.ActionLink("Next Page", "Index", "Cities", new{page = ViewBag.page + 1})</p>
+         <p>@Html.ActionLink("3", "Index", "Businesses", new{page = ViewBag.page, pageCount = 3})</p>
+
+         <p>@Html.ActionLink("Next Page", "Index", "Businesses", new{page = ViewBag.page + 1})</p>
   </div>
 </div>

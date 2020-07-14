@@ -22,8 +22,8 @@ namespace LocalLookupMVC.Controllers
             _userManager = userManager;
             _db = db;
         }
-        
-        public IActionResult Index(int page = 1, int pageCount = 2)
+
+        public IActionResult Index(int page = 1, int pageCount = 5)
         {
             IQueryable<Object> bizQuery = Business.GetBusinesses().AsQueryable();
             if (page <= 0)
@@ -34,9 +34,7 @@ namespace LocalLookupMVC.Controllers
             bizQuery = PaginationHelper.GetPaged(bizQuery, page, pageCount);
             List<Business> results = bizQuery.Cast<Business>().ToList();
             ViewBag.page = page;
-
-
-                return View(results);
+            return View(results);
         }
 
         [Authorize]
@@ -48,41 +46,37 @@ namespace LocalLookupMVC.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> Create(Business Business, int BusinessId)
+        public ActionResult Create(Business business, int BusinessId)
         {
-            _db.Businesses.Add(Business);
-            _db.SaveChanges();
+            Business.Post(business);
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)
         {
-            Business thisBusiness = _db.Businesses.FirstOrDefault(biz => biz.CityId == id);
+            Business thisBusiness = Business.GetDetails(id);
             return View(thisBusiness);
         }
 
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
-            ViewBag.TraitId = new SelectList(_db.Businesses, "TraitId", "Name");
+            var thisBusiness = Business.GetDetails(id);
+            ViewBag.CityId = new SelectList(Business.GetBusinesses(), "CityId", "Name");
             return View(thisBusiness);
         }
 
         [HttpPost]
-        public ActionResult Edit(Business Business, int TraitId)
+        public ActionResult Edit(Business business, int CityId)
         {
-            _db.Entry(Business).State = EntityState.Modified;
-            _db.SaveChanges();
+            ViewBag.CityId = new SelectList(City.GetCities(), "CityId", "Name");
             return RedirectToAction("Index");
         }
-
-
 
         [Authorize]
         public ActionResult Delete(int id)
         {
-            var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
+            var thisBusiness = Business.GetDetails(id);
             return View(thisBusiness);
         }
 
@@ -90,12 +84,10 @@ namespace LocalLookupMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
-            _db.Businesses.Remove(thisBusiness);
-            _db.SaveChanges();
+            Business.Delete(id);
             return RedirectToAction("Index");
         }
 
-      
+
     }
 }

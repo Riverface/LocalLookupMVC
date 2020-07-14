@@ -22,7 +22,7 @@
         @Html.EditorFor(model=>model.PhoneNumber, new{htmlAttributes = new{  @required = "required"}})
         @Html.LabelFor(model => model.Blurb)
         @Html.EditorFor(model=>model.Blurb, new{htmlAttributes = new{  @required = "required"}})
-
+        @Html.DropDownList("CityId")        
       <input type="submit" value="Save" />
     }
 

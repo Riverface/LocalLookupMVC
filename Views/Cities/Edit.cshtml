@@ -13,7 +13,10 @@
 
     @using (Html.BeginForm())
     {
-
+      @Html.HiddenFor(model => model.CityId)
+      @Html.TextBoxFor(model => model.Name, new{@required = "required"})
+      @Html.LabelFor(model => model.ZipCode)
+      @Html.TextBoxFor(model => model.ZipCode, new{@required = "required"})
       <input type="submit" value="Save" />
     }
 
