@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model LocalLookupMVC.Models.City;
+@model LocalLookupMVC.Models.Business;
 
 <div class='jumbotron'>
   <h2>City Details</h2>
@@ -12,8 +12,17 @@
   <div class='entryLabel'>
     <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
   </div>
+
+        @Html.LabelFor(model => model.CityId)
+        @Html.ValueFor(model=>model.CityId)
         @Html.LabelFor(model => model.Name)
         @Html.ValueFor(model=>model.Name)
+        @Html.LabelFor(model => model.Address)
+        @Html.ValueFor(model=>model.Address)
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.ValueFor(model=>model.PhoneNumber)
+        @Html.LabelFor(model => model.Blurb)
+        @Html.ValueFor(model=>model.Blurb)
   <table>
       <tr>
 
@@ -24,20 +33,7 @@
   </table>
   <div class=' entry'>
     <hr />
-    @if(@Model.Businesses.Count == 0)
-    {
-      <p>This City is not used yet :(</p>
-    }
-    else
-    {
-      <h4>Businesses with this city:</h4>
-      <ul>
-        @foreach(var join in Model.Businesses)
-        {
 
-        }
-      </ul>
-    }
   </div>
 </div>
   @if(User.Identity.IsAuthenticated)
@@ -48,8 +44,8 @@
 
     <div class='property'>
       <p>@Html.ActionLink("Back to Cities", "Index")</p>
-      <p>@Html.ActionLink("Edit City", "Edit", new { id = Model.CityId })</p>
-      <p>@Html.ActionLink("Delete City", "Delete", new { id = Model.CityId })</p>
+      <p>@Html.ActionLink("Edit City", "Edit", new { id = Model.BusinessId })</p>
+      <p>@Html.ActionLink("Delete City", "Delete", new { id = Model.BusinessId })</p>
     </div>
   }
 </div>

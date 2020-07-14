@@ -22,36 +22,33 @@ namespace LocalLookupMVC.Controllers
             _userManager = userManager;
             _db = db;
         }
-        [Authorize]
+        
         public IActionResult Index(int page = 1, int pageCount = 2)
         {
             IQueryable<Object> bizQuery = Business.GetBusinesses().AsQueryable();
-            if(page <= 0 ){
-               page = 1;
+            if (page <= 0)
+            {
+                page = 1;
             }
             ViewBag.pageCount = pageCount;
             bizQuery = PaginationHelper.GetPaged(bizQuery, page, pageCount);
             List<Business> results = bizQuery.Cast<Business>().ToList();
             ViewBag.page = page;
-            if(results.Count == 0){
-                return View();
-            }
-            else{
 
-            return View(results);
-            }
+
+                return View(results);
         }
 
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            ViewBag.BusinessId = new SelectList(_db.Businesses, "BusinessId", "Name");
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> Create(Business Business, int traitId)
+        public async Task<ActionResult> Create(Business Business, int BusinessId)
         {
             _db.Businesses.Add(Business);
             _db.SaveChanges();
@@ -60,7 +57,7 @@ namespace LocalLookupMVC.Controllers
 
         public ActionResult Details(int id)
         {
-            var thisBusiness = _db.Businesses;
+            Business thisBusiness = _db.Businesses.FirstOrDefault(biz => biz.CityId == id);
             return View(thisBusiness);
         }
 
@@ -68,7 +65,7 @@ namespace LocalLookupMVC.Controllers
         public ActionResult Edit(int id)
         {
             var thisBusiness = _db.Businesses.FirstOrDefault(Businesses => Businesses.BusinessId == id);
-            ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
+            ViewBag.TraitId = new SelectList(_db.Businesses, "TraitId", "Name");
             return View(thisBusiness);
         }
 
@@ -80,39 +77,7 @@ namespace LocalLookupMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        // [Authorize]
-        // public ActionResult AddTrait(int id)
-        // {
-        //     var thisBusiness = _db.Businesses.FirstOrDefault(Business => Business.BusinessId == id);
-        //     ViewBag.TraitId = new SelectList(_db.Cities, "TraitId", "Name");
-        //     return View(thisBusiness);
-        // }
 
-        // [Authorize]
-        // [HttpPost]
-        // public ActionResult AddTrait(Business Business, int TraitId)
-        // {
-
-        //     if (TraitId != 0)
-        //     {
-        //         var compareBusinesstrait = _db.BusinessCities.FirstOrDefault(trait => trait.TraitId == TraitId);
-        //         foreach (BusinessTrait compareTrait in Business.Cities)
-        //         {
-        //             if (Business.BusinessId == compareBusinesstrait.BusinessId)
-        //             {
-        //                 if (compareBusinesstrait.TraitId == TraitId)
-        //                 {
-
-        //                     return RedirectToAction("Index", "Businesses");
-        //                 }
-        //             }
-        //         }
-        //         _db.BusinessCities.Add(new BusinessTrait() { TraitId = TraitId, BusinessId = Business.BusinessId });
-        //         _db.SaveChanges();
-
-        //     }
-        //     return RedirectToAction("Index", "Businesses");
-        // }
 
         [Authorize]
         public ActionResult Delete(int id)
@@ -131,14 +96,6 @@ namespace LocalLookupMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        // [Authorize]
-        // [HttpPost]
-        // public ActionResult DeleteTrait(int joinId)
-        // {
-        //     var joinEntry = _db.BusinessCities.FirstOrDefault(entry => entry.BusinessTraitId == joinId);
-        //     _db.BusinessCities.Remove(joinEntry);
-        //     _db.SaveChanges();
-        //     return RedirectToAction("Index");
-        // }
+      
     }
 }

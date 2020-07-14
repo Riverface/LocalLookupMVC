@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model LocalLookupMVC.Models.City
+@model LocalLookupMVC.Models.Business
 
 <div>
   <div class='entryLabel'>
@@ -13,9 +13,16 @@
 
     @using (Html.BeginForm())
     {
-      @Html.HiddenFor(model => model.CityId)
-      @Html.LabelFor(model => model.Name)
-      @Html.EditorFor(model => model.Name, new{htmlAttributes = new{  @required = "required"}})
+        @Html.HiddenFor(model =>model.BusinessId)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model=>model.Name, new{htmlAttributes = new{  @required = "required"}})
+        @Html.LabelFor(model => model.Address)
+        @Html.EditorFor(model=>model.Address, new{htmlAttributes = new{  @required = "required"}})
+        @Html.LabelFor(model => model.PhoneNumber)
+        @Html.EditorFor(model=>model.PhoneNumber, new{htmlAttributes = new{  @required = "required"}})
+        @Html.LabelFor(model => model.Blurb)
+        @Html.EditorFor(model=>model.Blurb, new{htmlAttributes = new{  @required = "required"}})
+
       <input type="submit" value="Save" />
     }
 

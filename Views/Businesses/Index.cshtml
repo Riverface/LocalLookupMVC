@@ -24,7 +24,7 @@
 
       @foreach (Business Business in Model)
       {
-        <li>@Html.ActionLink($"{Business.Name}", "Details", new { id = Business.CityId })</li>
+        <li>@Html.ActionLink($"{Business.Name}", "Details", new { id = Business.BusinessId })</li>
       }
     
     }

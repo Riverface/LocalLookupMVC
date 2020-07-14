@@ -54,7 +54,7 @@ namespace LocalLookupMVC.Controllers
 
         public ActionResult Details(int id)
         {
-            var thisCity = _db.Cities;
+            City thisCity = City.GetDetails(id);
             return View(thisCity);
         }
 
