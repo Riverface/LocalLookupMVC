@@ -3,26 +3,35 @@
 }
 
 @using LocalLookupMVC.ViewModels
-
 @model RegisterViewModel
 
-<h2>Register a new user</h2>
 <hr/>
 <div>
   <div class='entryLabel'>
+<h2>Register a new user</h2>
   </div>
   <div class='entry' style="height: auto;">
 
     @using (Html.BeginForm("Register", "Accounts"))
     {
-        <p>@Html.LabelFor(model=>model.Email)</p>
-        <p>@Html.TextBoxFor(model=>model.Email)</p>
-
-        <p>@Html.LabelFor(Model=>Model.Password)</p>
-        <p>@Html.PasswordFor(Model=>Model.Password)</p>
-
-        <p>@Html.LabelFor(Model=>Model.ConfirmPassword)</p>
-        <p>@Html.PasswordFor(Model=>Model.ConfirmPassword)</p>
+        <p>
+          @Html.LabelFor(model=>model.Email)
+        </p>
+        <p>
+          @Html.TextBoxFor(model=>model.Email)
+        </p>
+        <p>
+          @Html.LabelFor(Model=>Model.Password)
+        </p>
+        <p>
+          @Html.PasswordFor(Model=>Model.Password)
+        </p>
+        <p>
+          @Html.LabelFor(Model=>Model.ConfirmPassword)
+        </p>
+        <p>
+          @Html.PasswordFor(Model=>Model.ConfirmPassword)
+        </p>
 
         <input type="submit" value="Register"/>
     }

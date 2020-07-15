@@ -14,9 +14,9 @@ namespace LocalLookupMVC.Models
 
         public int CityId{get;set;}
         public int ZipCode{get;set;}
-
         public string Name{get;set;}
         public HashSet<Business> Businesses;
+        
         public static List<City> GetCities()
         {
             var apiCallTask = CityApiHelper.GetAll();
@@ -35,6 +35,7 @@ namespace LocalLookupMVC.Models
 
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             City city = JsonConvert.DeserializeObject<City>(jsonResponse.ToString());
+
             return city;
         }
 
@@ -54,7 +55,5 @@ namespace LocalLookupMVC.Models
         {
             var apiCallTask = CityApiHelper.Delete(id);
         }
-
-
     }
 }

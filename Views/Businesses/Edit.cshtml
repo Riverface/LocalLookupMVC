@@ -6,23 +6,24 @@
 
 <div>
   <div class='entryLabel'>
-    <h2>Edit this City: @Html.DisplayFor(model => model.Name)
+    <h2>
+      Edit this Business: @Html.DisplayFor(model => model.Name)
     </h2>
   </div>
   <div class='entry'>
-
     @using (Html.BeginForm())
     {
-        @Html.HiddenFor(model =>model.BusinessId)
-        @Html.LabelFor(model => model.Name)
-        @Html.EditorFor(model=>model.Name, new{htmlAttributes = new{  @required = "required"}})
-        @Html.LabelFor(model => model.Address)
-        @Html.EditorFor(model=>model.Address, new{htmlAttributes = new{  @required = "required"}})
-        @Html.LabelFor(model => model.PhoneNumber)
-        @Html.EditorFor(model=>model.PhoneNumber, new{htmlAttributes = new{  @required = "required"}})
-        @Html.LabelFor(model => model.Blurb)
-        @Html.EditorFor(model=>model.Blurb, new{htmlAttributes = new{  @required = "required"}})
-        @Html.DropDownList("CityId")        
+        <p>@Html.HiddenFor(model =>model.BusinessId)</p>
+        <p style="font-weight:bold">@Html.LabelFor(model => model.Name)</p>
+        <p>@Html.EditorFor(model=>model.Name, new{htmlAttributes = new{@required = "required"}})</p>
+        <p style="font-weight:bold">@Html.LabelFor(model => model.Address)</p>
+        <p>@Html.EditorFor(model=>model.Address, new{htmlAttributes = new{@required = "required"}})</p>
+        <p style="font-weight:bold">@Html.LabelFor(model => model.PhoneNumber)</p>
+        <p>@Html.EditorFor(model=>model.PhoneNumber, new{htmlAttributes = new{@required = "required"}})</p>
+        <p style="font-weight:bold">@Html.LabelFor(model => model.Blurb)</p>
+        <p>@Html.EditorFor(model=>model.Blurb, new{htmlAttributes = new{@required = "required"}})</p>
+        <p style="font-weight:bold">@Html.LabelFor(model=> model.City)</p>
+        <p>@Html.DropDownList("CityId")</p>
       <input type="submit" value="Save" />
     }
 

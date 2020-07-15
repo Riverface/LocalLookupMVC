@@ -12,17 +12,12 @@ namespace LocalLookupMVC.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Blurb { get; set; }
-
-        public Business()
-        {
-
-        }
+        public virtual City City { get; set; }
 
         public static List<Business> GetBusinesses()
         {
             var apiCallTask = BusinessApiHelper.GetAll();
             var result = apiCallTask.Result;
-            
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
             List<Business> BusinessList = JsonConvert.DeserializeObject<List<Business>>(jsonResponse.ToString());
 

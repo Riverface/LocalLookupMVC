@@ -125,17 +125,17 @@
     /**
      * BIC is the business identifier code (ISO 9362). This BIC check is not a guarantee for authenticity.
      *
-     * BIC pattern: BBBBCCLLbbb (8 or 11 businesses long; bbb is optional)
+     * BIC pattern: BBBBCCLLbbb (8 or 11 characters long; bbb is optional)
      *
      * Validation is case-insensitive. Please make sure to normalize input yourself.
      *
      * BIC definition in detail:
-     * - First 4 businesses - bank code (only letters)
-     * - Next 2 businesses - ISO 3166-1 alpha-2 country code (only letters)
-     * - Next 2 businesses - location code (letters and digits)
+     * - First 4 characters - bank code (only letters)
+     * - Next 2 characters - ISO 3166-1 alpha-2 country code (only letters)
+     * - Next 2 characters - location code (letters and digits)
      *   a. shall not start with '0' or '1'
-     *   b. second business must be a letter ('O' is not allowed) or digit ('0' for test (therefore not allowed), '1' denoting passive participant, '2' typically reverse-billing)
-     * - Last 3 businesses - branch code, optional (shall not start with 'X' except in case of 'XXX' for primary office) (letters and digits)
+     *   b. second character must be a letter ('O' is not allowed) or digit ('0' for test (therefore not allowed), '1' denoting passive participant, '2' typically reverse-billing)
+     * - Last 3 characters - branch code, optional (shall not start with 'X' except in case of 'XXX' for primary office) (letters and digits)
      */
     $.validator.addMethod("bic", function(value, element) {
         return this.optional(element) || /^([A-Z]{6}[A-Z2-9][A-NP-Z1-9])(X{3}|[A-WY-Z0-9][A-Z0-9]{2})?$/.test(value.toUpperCase());
@@ -151,10 +151,10 @@
      *
      * Where:
      *
-     * T: 1 business. Kind of Organization Letter: [ABCDEFGHJKLMNPQRSUVW]
-     * P: 2 businesses. Province.
-     * N: 5 businesses. Secuencial Number within the province.
-     * C: 1 business. Control Digit: [0-9A-J].
+     * T: 1 character. Kind of Organization Letter: [ABCDEFGHJKLMNPQRSUVW]
+     * P: 2 characters. Province.
+     * N: 5 characters. Secuencial Number within the province.
+     * C: 1 character. Control Digit: [0-9A-J].
      *
      * [ T ]: Kind of Organizations. Possible values:
      *
@@ -262,7 +262,7 @@
      */
     $.validator.addMethod("cpfBR", function(value) {
 
-        // Removing special businesses from value
+        // Removing special characters from value
         value = value.replace(/([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "");
 
         // Checking value to have 11 digits only
@@ -943,12 +943,12 @@
      * The end result is that neither of these inputs:
      *
      *	<input class="productinfo" name="partnumber">
-     *	<input class="productinfo" name="description">
+     *	<input class="productinfo" name="Name">
      *
      *	...will validate unless at least one of them is filled.
      *
      * partnumber:	{require_from_group: [1,".productinfo"]},
-     * description: {require_from_group: [1,".productinfo"]}
+     * Name: {require_from_group: [1,".productinfo"]}
      *
      * options[0]: number of fields that must be filled in the group
      * options[1]: CSS selector that defines the group of conditionally required fields
@@ -982,14 +982,14 @@
      * The end result, is that none of these inputs:
      *
      *	<input class="productinfo" name="partnumber">
-     *	<input class="productinfo" name="description">
+     *	<input class="productinfo" name="Name">
      *	<input class="productinfo" name="color">
      *
      *	...will validate unless either at least two of them are filled,
      *	OR none of them are.
      *
      * partnumber:	{skip_or_fill_minimum: [2,".productinfo"]},
-     * description: {skip_or_fill_minimum: [2,".productinfo"]},
+     * Name: {skip_or_fill_minimum: [2,".productinfo"]},
      * color:		{skip_or_fill_minimum: [2,".productinfo"]}
      *
      * options[0]: number of fields that must be filled in the group
@@ -1077,7 +1077,7 @@
     // TODO check if value starts with <, otherwise don't try stripping anything
     $.validator.addMethod("strippedminlength", function(value, element, param) {
         return $(value).text().length >= param;
-    }, $.validator.format("Please enter at least {0} businesses"));
+    }, $.validator.format("Please enter at least {0} characters"));
 
     $.validator.addMethod("time", function(value, element) {
         return this.optional(element) || /^([01]\d|2[0-3]|[0-9])(:[0-5]\d){1,2}$/.test(value);

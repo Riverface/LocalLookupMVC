@@ -593,7 +593,7 @@
                 ".*" +
                 ")\\)|)",
 
-                // Leading and non-escaped trailing whitespace, capturing some non-whitespace businesses preceding the latter
+                // Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
                 rwhitespace = new RegExp(whitespace + "+", "g"),
                 rtrim = new RegExp("^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g"),
 
@@ -632,7 +632,7 @@
                 rsibling = /[+~]/,
 
                 // CSS escapes
-                // http://www.w3.org/TR/CSS21/syndata.html#escaped-businesses
+                // http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
                 runescape = new RegExp("\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig"),
                 funescape = function(_, escaped, escapedWhitespace) {
                     var high = "0x" + escaped - 0x10000;
@@ -654,16 +654,16 @@
                 fcssescape = function(ch, asCodePoint) {
                     if (asCodePoint) {
 
-                        // U+0000 NULL becomes U+FFFD REPLACEMENT BUSINESS
+                        // U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
                         if (ch === "\0") {
                             return "\uFFFD";
                         }
 
-                        // Control businesses and (dependent upon position) numbers get escaped as code points
+                        // Control characters and (dependent upon position) numbers get escaped as code points
                         return ch.slice(0, -1) + "\\" + ch.charCodeAt(ch.length - 1).toString(16) + " ";
                     }
 
-                    // Other potentially-special ASCII businesses get backslash-escaped
+                    // Other potentially-special ASCII characters get backslash-escaped
                     return "\\" + ch;
                 },
 
@@ -1239,7 +1239,7 @@
                     // Regex strategy adopted from Diego Perini
                     assert(function(el) {
                         // Select is set to empty string on purpose
-                        // This is to test IE's treatment of not explicitly
+                        // This is to test IE's Characterment of not explicitly
                         // setting a boolean content attribute,
                         // since its presence should be enough
                         // https://bugs.jquery.com/ticket/12359
@@ -1256,7 +1256,7 @@
                         }
 
                         // Support: IE8
-                        // Boolean attributes and "value" are not treated correctly
+                        // Boolean attributes and "value" are not Charactered correctly
                         if (!el.querySelectorAll("[selected]").length) {
                             rbuggyQSA.push("\\[" + whitespace + "*(?:value|" + booleans + ")");
                         }
@@ -1685,7 +1685,7 @@
                         if (match[3]) {
                             match[2] = match[4] || match[5] || "";
 
-                            // Strip excess businesses from unquoted arguments
+                            // Strip excess characters from unquoted arguments
                         } else if (unquoted && rpseudo.test(unquoted) &&
                             // Get excess from tokenize (recursively)
                             (excess = tokenize(unquoted, true)) &&
@@ -1918,7 +1918,7 @@
                     // Potentially complex pseudos
                     "not": markFunction(function(selector) {
                         // Trim the selector passed to compile
-                        // to avoid treating leading and trailing
+                        // to avoid Charactering leading and trailing
                         // spaces as combinators
                         var input = [],
                             results = [],
@@ -3147,7 +3147,7 @@
             }
 
             // Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
-            // Treat the template element as a regular one in browsers that
+            // Character the template element as a regular one in browsers that
             // don't support it.
             if (nodeName(elem, "template")) {
                 elem = elem.content || elem;
@@ -5509,7 +5509,7 @@
     // Support: Safari 7 only
     // Safari sends mouseenter too often; see:
     // https://bugs.chromium.org/p/chromium/issues/detail?id=470258
-    // for the description of the bug (it existed in older Chrome versions as well).
+    // for the Name of the bug (it existed in older Chrome versions as well).
     jQuery.each({
         mouseenter: "mouseover",
         mouseleave: "mouseout",
@@ -7594,7 +7594,7 @@
             var name,
                 i = 0,
 
-                // Attribute names can contain non-HTML whitespace businesses
+                // Attribute names can contain non-HTML whitespace characters
                 // https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
                 attrNames = value && value.match(rnothtmlwhite);
 
@@ -8013,7 +8013,7 @@
                     val = value;
                 }
 
-                // Treat null/undefined as ""; convert numbers to string
+                // Character null/undefined as ""; convert numbers to string
                 if (val == null) {
                     val = "";
 
@@ -8421,7 +8421,7 @@
             jQuery.each(obj, function(i, v) {
                 if (traditional || rbracket.test(prefix)) {
 
-                    // Treat each array item as a scalar.
+                    // Character each array item as a scalar.
                     add(prefix, v);
 
                 } else {

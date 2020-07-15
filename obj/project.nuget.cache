@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xGJeEbtlz6KifAbK5ahlRak8FUdnDYgh5fWSofWJTzRkPZPAIcc4ecg9hlDXD1BaZ3Jl9TZsfCzcnaHwOhjY3g==",
+  "dgSpecHash": "2DR74fGx5HMlXll+eLl9uMOAXqAqGdyrtqtPFF2xl8KBswmWRDbAfUaRv0OGxA2/zm4nfHkYhdbM8deTXIXaZg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Programming\\LocalLookup\\LocalLookupMVC.Solution\\LocalLookupMVC\\LocalLookupMVC.Solution.csproj",
+  "projectFilePath": "D:\\Projects\\Programming\\LocalLookup\\locallookupmvc.solution\\locallookupmvc\\LocalLookupMVC.Solution.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sonos\\.nuget\\packages\\automapper\\8.1.0\\automapper.8.1.0.nupkg.sha512",
     "C:\\Users\\sonos\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",

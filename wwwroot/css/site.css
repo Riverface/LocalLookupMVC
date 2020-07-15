@@ -2,55 +2,243 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+td {
+    border: 2px black solid;
+}
+
+tr {
+    border: 2px black solid;
+}
+
+.entryLabel {
+    border: 1px;
+    border-style: outset;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 300px;
+    color: black;
+    display: block;
+    padding: 10px;
+    background-color: pink;
+    animation-duration: 7s;
+    font-family: "Press Start 2P";
+    user-select: none;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.animated {
+    animation-name: example;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.entry {
+    border: 4px outset;
+    width: 300px;
+    height: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    padding-top: 50px;
+    border-top: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    padding: 5px;
+    background-color: lightgreen;
+    margin-bottom: 10px;
+    font-family: "Press Start 2P";
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.property {
+    border: 4px outset;
+    width: 200px;
+    border-radius: 10px;
+    border-top: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+.phoneNumber {
+    background-color: lightblue;
+    animation-duration: 1s;
+}
+
+.name {
+    background-color: lightblue;
+    animation-duration: 10s;
+}
+
+.propertyLabel {
+    border: 4px outset;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 200px;
+    color: black;
+    display: block;
+    padding: 5px;
+    border-bottom: 0px;
+    animation-duration: 10s;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#entries {
+    width: 400px;
+    margin: 100px;
+    border: 4px inset;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: lightgrey;
+    font-family: "Press Start 2P";
+}
+
+.buttonlikething {
+    cursor: pointer;
+}
+
+.buttonlikething:hover {
+    cursor: pointer;
+}
+
+.jumbotron {
+    font-family: "Press Start 2P";
+    padding: 10px;
+}
+
+.remote {
+    position: fixed;
+    right: 50px;
+    text-align: center;
+    bottom: 50px;
+    font-family: "Press Start 2P";
+    border: 4px outset;
+    border-radius: 10px;
+    padding: 10px;
+    animation-duration: 10s;
+    background-color: lightgrey;
+}
+
+.btn-default {
+    border: 4px outset;
+    border-radius: 5px;
+    padding: 2px;
+    user-select: none;
+}
+
+.btn {
+    width: 150px;
+    cursor: crosshair;
+    user-select: none;
+}
+
+#newContactForm {
+    animation-duration: 50s;
+    position: fixed;
+    right: 100px;
+    bottom: 20%;
+    width: 200px;
+    height: 500px;
+}
+
+body {
+    background: transparent;
+    background-image: url(space.gif);
+    background-repeat: repeat;
+    animation-name: bgmove;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.labelclose {
+    align-content: right;
+    align-self: right;
+    margin-left: 50px;
+    cursor: crosshair;
+    user-select: none;
+}
+
+.transform {
+    transition: all 1s ease;
+    margin-bottom: 0px;
+}
+
+.transform-active {
+    margin-bottom: -640px;
 }

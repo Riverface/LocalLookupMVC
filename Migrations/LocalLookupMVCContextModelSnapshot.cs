@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupMVC.Solution.Migrations
+namespace LocalLookupMVC.Migrations
 {
     [DbContext(typeof(LocalLookupMVCContext))]
     partial class LocalLookupMVCContextModelSnapshot : ModelSnapshot

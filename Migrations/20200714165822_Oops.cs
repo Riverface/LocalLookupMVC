@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LocalLookupMVC.Solution.Migrations
+namespace LocalLookupMVC.Migrations
 {
     public partial class Oops : Migration
     {

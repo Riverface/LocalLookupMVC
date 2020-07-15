@@ -2,46 +2,78 @@
   Layout = "_Layout";
 }
 
+@using LocalLookupMVC.Models;
 @model LocalLookupMVC.Models.Business;
 
 <div class='jumbotron'>
-  <h2>City Details</h2>
+  <h2>
+    Business Details
+  </h2>
 </div>
-
 <div class="">
   <div class='entryLabel'>
-    <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+    <p>
+      @Html.DisplayNameFor(model => model.Name) @Html.DisplayFor(model => model.Name)
+    </p>
   </div>
-
-        @Html.LabelFor(model => model.CityId)
-        @Html.ValueFor(model=>model.CityId)
-        @Html.LabelFor(model => model.Name)
-        @Html.ValueFor(model=>model.Name)
-        @Html.LabelFor(model => model.Address)
-        @Html.ValueFor(model=>model.Address)
-        @Html.LabelFor(model => model.PhoneNumber)
-        @Html.ValueFor(model=>model.PhoneNumber)
-        @Html.LabelFor(model => model.Blurb)
-        @Html.ValueFor(model=>model.Blurb)
-  <table>
-      <tr>
-
-      </tr>
-      <tr>
-
-      </tr>
-  </table>
-  <div class=' entry'>
-    <hr />
-
-  </div>
+      <div class=' entry'>
+        <div class='container'>
+            <p style="font-weight:bold" class='propertyLabel'>
+              @Html.LabelFor(model => model.CityId)
+          </p>
+          <p class='property' style="">
+            @Html.ValueFor(model=>model.CityId)
+          </p>
+            <p style="font-weight:bold" class='propertyLabel'>
+              @Html.LabelFor(model => model.Name)
+            </p>
+          <p class='property' style="">
+            @Html.ValueFor(model=>model.Name)
+          </p>
+            <p style="font-weight:bold" class='propertyLabel'>
+              @Html.LabelFor(model => model.Address):
+            </p>
+          <p class='property' style="">
+          @Html.ValueFor(model=>model.Address)
+          </p>
+          <p>
+          </p>
+            <p>
+              @if(Model.CityId == 0)
+              {
+                <p>
+                  No city assigned.
+                </p>
+              }
+              else
+              {
+                <p>
+                 <div class='propertyLabel' style="font-weight:bold">City</div> <div class='property'> @Model.City.Name</div>
+                 <div class='propertyLabel' style="font-weight:bold">ZIP</div> <div class='property'> @Model.City.ZipCode</div>
+                </p>
+              }
+            </p>
+            <p class='propertyLabel'>
+            @Html.LabelFor(model=>model.PhoneNumber)
+            </p>
+          <p class='property'>
+            @Html.ValueFor(model=>model.PhoneNumber)
+          </p>
+          <p style="font-weight:bold" class='propertyLabel'>
+            @Html.LabelFor(model => model.Blurb)
+          </p>
+          <p class='property'>
+            @Html.ValueFor(model=>model.Blurb)
+          </p>
+        </div>
+      <hr />
+    </div>
 </div>
   @if(User.Identity.IsAuthenticated)
   {
     <div class='entryLabel propertyLabel'>
       City Links
     </div>
-
     <div class='property'>
       <p>@Html.ActionLink("Back to Businesses", "Index")</p>
       <p>@Html.ActionLink("Edit City", "Edit", new { id = Model.BusinessId })</p>

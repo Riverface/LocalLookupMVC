@@ -40,7 +40,8 @@ namespace LocalLookupMVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.BusinessId = new SelectList(_db.Businesses, "BusinessId", "Name");
+
+            ViewBag.CityId = new SelectList(City.GetCities().AsEnumerable(), "CityId", "Name");
             return View();
         }
 
@@ -52,24 +53,38 @@ namespace LocalLookupMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
             Business thisBusiness = Business.GetDetails(id);
+            if(thisBusiness.CityId != 0)
+            {
+                thisBusiness.City = City.GetDetails(thisBusiness.CityId);
+            }
+            else{
+                thisBusiness.City = new City();
+            }
             return View(thisBusiness);
         }
 
         [Authorize]
         public ActionResult Edit(int id)
         {
-            var thisBusiness = Business.GetDetails(id);
-            ViewBag.CityId = new SelectList(Business.GetBusinesses(), "CityId", "Name");
+            Business thisBusiness = Business.GetDetails(id);
+            if(thisBusiness.CityId != 0)
+            {
+                thisBusiness.City = City.GetDetails(thisBusiness.CityId);
+            }
+            else{
+                thisBusiness.City = new City();
+            }
+            ViewBag.CityId = new SelectList(City.GetCities().AsEnumerable(), "CityId", "Name");
             return View(thisBusiness);
         }
 
         [HttpPost]
         public ActionResult Edit(Business business, int CityId)
         {
-            ViewBag.CityId = new SelectList(City.GetCities(), "CityId", "Name");
+            Business.Post(business);
             return RedirectToAction("Index");
         }
 

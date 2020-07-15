@@ -6,8 +6,11 @@
 @model List<LocalLookupMVC.Models.City>;
 
 <div class='jumbotron'>
- <h1>Cities</h1>
+ <h1>
+   Cities
+ </h1>
 </div>
+
 <div>
   <div class='entryLabel'>
     <h2>
@@ -17,26 +20,41 @@
   <div class='entry'>
     @if (@Model.Count == 0)
     {
-      <h3>No Cities have been added yet!</h3>
+      <h3>
+        No Cities have been added yet!
+      </h3>
     } 
-
+    
     @foreach (City City in Model)
     {
-      <li>@Html.ActionLink($"{City.Name}", "Details", new { id = City.CityId })</li>
+      <div class='propertyLabel'>
+       ID: #@City.CityId
+      </div>
+      <div class='property'>
+        @Html.ActionLink($"{City.Name}", "Details", new { id = City.CityId })
+      </div>
     }
     
     @if(User.Identity.IsAuthenticated)
     {
-      <p>@Html.ActionLink("Add new City", "Create")</p>
+      <p>
+        @Html.ActionLink("Add new City", "Create")
+      </p>
     }
-        <li>Page: @ViewBag.page</li>
-         <p>@Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1})</p>
-         
-         <p>@Html.ActionLink("1", "Index", "Cities", new{page = ViewBag.page, pageCount = 1 })</p>
-         
-         <p>@Html.ActionLink("2", "Index", "Cities", new{page = ViewBag.page, pageCount = 2})</p>
-         
-         <p>@Html.ActionLink("3", "Index", "Cities", new{page = ViewBag.page, pageCount = 3})</p>
-         <p>@Html.ActionLink("Next Page", "Index", "Cities", new{page = ViewBag.page + 1})</p>
+    <li>
+      Page: @ViewBag.page
+    </li>
+    <p>
+      @Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1})
+    </p>
+    <p>
+      @Html.ActionLink("5", "Index", "Cities", new{page = ViewBag.page, pageCount = 5})
+    </p>
+    <p>
+      @Html.ActionLink("10", "Index", "Cities", new{page = ViewBag.page, pageCount = 10})
+    </p>
+    <p>
+      @Html.ActionLink("Next Page", "Index", "Cities", new{page = ViewBag.page + 1})
+    </p>
   </div>
 </div>

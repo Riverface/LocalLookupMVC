@@ -4,9 +4,11 @@
 
 @using LocalLookupMVC.Models;
 @model List<LocalLookupMVC.Models.Business>;
-
+  
 <div class='jumbotron'>
- <h1>Businesses</h1>
+ <h1>
+   Businesses
+ </h1>
 </div>
 <div>
   <div class='entryLabel'>
@@ -15,32 +17,46 @@
     </h2> 
   </div>
   <div class='entry'>
-    
-    @if (@Model == null)
+  @if (@Model == null)
+  {
+    <h3>
+      No Businesses have been added yet!
+    </h3>
+  }
+  else{
+    @foreach (Business Business in Model)
     {
-      <h3>No Businesses have been added yet!</h3>
-    } 
-    else{
-
-      @foreach (Business Business in Model)
-      {
-        <li>@Html.ActionLink($"{Business.Name}", "Details", new { id = Business.BusinessId })</li>
-      }
-    
+      <hr/>
+      <p>
+          <p class='propertyLabel'>
+            ID: #@Business.BusinessId  
+          </p> 
+        <div class='property'>
+          Name: @Html.ActionLink($"{Business.Name}", "Details","Businesses", new { id = Business.BusinessId })
+        </div>
+      </p>
     }
+  }
     @if(User.Identity.IsAuthenticated)
     {
-      <p>@Html.ActionLink("Add new Business", "Create")</p>
+      @Html.ActionLink("Add new Business", "Create")
     }
-        <li>Page: @ViewBag.page</li>
-         <p>@Html.ActionLink("Back a Page", "Index", "Businesses", new{page = ViewBag.page - 1})</p>
-         
-         <p>@Html.ActionLink("1", "Index", "Businesses", new{page = ViewBag.page, pageCount = 1 })</p>
-         
-         <p>@Html.ActionLink("2", "Index", "Businesses", new{page = ViewBag.page, pageCount = 2})</p>
-         
-         <p>@Html.ActionLink("3", "Index", "Businesses", new{page = ViewBag.page, pageCount = 3})</p>
-
-         <p>@Html.ActionLink("Next Page", "Index", "Businesses", new{page = ViewBag.page + 1})</p>
+    <p class='propertyLabel'>
+      Page: @ViewBag.page
+    </p>  
+  <div class='property'>
+    <p>
+      @Html.ActionLink("Back a Page", "Index", "Businesses", new{page = ViewBag.page - 1})
+    </p>
+    <p>
+      @Html.ActionLink("5", "Index", "Businesses", new{page = ViewBag.page, pageCount = 5})
+    </p>
+    <p>
+      @Html.ActionLink("10", "Index", "Businesses", new{page = ViewBag.page, pageCount = 10})
+    </p>
+    <p>
+      @Html.ActionLink("Next Page", "Index", "Businesses", new{page = ViewBag.page + 1})
+    </p>
+    </p>
   </div>
 </div>

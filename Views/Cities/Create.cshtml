@@ -10,13 +10,23 @@
     <h4>Add a new City</h4>
   </div>
   <div class='entry'>
-
     @using (Html.BeginForm())
     {
-      @Html.HiddenFor(model => model.CityId)
-      @Html.TextBoxFor(model => model.Name, new{@required = "required"})
-      @Html.LabelFor(model => model.ZipCode)
-      @Html.TextBoxFor(model => model.ZipCode, new{@required = "required"})
+      <p style="font-weight:bold">
+        @Html.HiddenFor(model => model.CityId)
+      </p>
+      <p style="font-weight:bold">
+        @Html.LabelFor(model => model.Name)
+      </p>
+      <p style="font-weight:bold">
+        @Html.TextBoxFor(model => model.Name, new{@required = "required"})
+      </p>
+      <p style="font-weight:bold">
+        @Html.LabelFor(model => model.ZipCode)
+      </p>
+      <p style="font-weight:bold">
+        @Html.TextBoxFor(model => model.ZipCode, new{@required = "required"})
+      </p>
       <input type="submit" value="Add new City"/>
     }
   </div>

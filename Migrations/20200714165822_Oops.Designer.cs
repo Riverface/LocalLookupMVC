@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LocalLookupMVC.Solution.Migrations
+namespace LocalLookupMVC.Migrations
 {
     [DbContext(typeof(LocalLookupMVCContext))]
     [Migration("20200714165822_Oops")]
