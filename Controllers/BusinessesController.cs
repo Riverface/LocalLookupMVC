@@ -84,9 +84,10 @@ namespace LocalLookupMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(Business business, int CityId)
+        public async Task<ActionResult> Edit(Business business, int cityId)
         {
-            await Business.Post(business);
+            business.CityId = cityId;
+            await Business.Put(business);
             return RedirectToAction("Index");
         }
 

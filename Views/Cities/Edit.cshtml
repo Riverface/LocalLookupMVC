@@ -13,6 +13,7 @@
   <div class='entry'>
     @using (Html.BeginForm())
     {
+      
       <p>@Html.HiddenFor(model => model.CityId)</p>
       <p class='propertyLabel' style="font-weight: bold;  width:250px">@Html.LabelFor(model=>model.Name)</p>
       <p class='property' style=" width:250px">@Html.TextBoxFor(model => model.Name, new{@required = "required"})</p>
