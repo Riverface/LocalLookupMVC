@@ -1,22 +1,22 @@
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LocalLookupMVC.Models
 {
     public class City
     {
 
-        public int CityId{get;set;}
-        public int ZipCode{get;set;}
-        public string Name{get;set;}
+        public int CityId { get; set; }
+        public int ZipCode { get; set; }
+        public string Name { get; set; }
         public HashSet<Business> Businesses;
-        
+
         public static List<City> GetCities()
         {
             var apiCallTask = CityApiHelper.GetAll();
@@ -31,11 +31,13 @@ namespace LocalLookupMVC.Models
         public static City GetDetails(int id)
         {
             var apiCallTask = CityApiHelper.Get(id);
+            if (!apiCallTask.Status.Equals(200))
+            {
+                return new City { Name = "Change Me, I'm broken", CityId = 0 };
+            }
             var result = apiCallTask.Result;
-
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             City city = JsonConvert.DeserializeObject<City>(jsonResponse.ToString());
-
             return city;
         }
 

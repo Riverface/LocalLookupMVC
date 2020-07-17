@@ -1,4 +1,5 @@
 using RestSharp;
+using System;
 using System.Threading.Tasks;
 
 namespace LocalLookupMVC.Models
@@ -17,7 +18,9 @@ namespace LocalLookupMVC.Models
         {
             RestClient client = new RestClient("http://localhost:5004/api");
             RestRequest request = new RestRequest($"cities/{id}", Method.GET);
+
             var response = await client.ExecuteTaskAsync(request);
+
             return response.Content;
         }
 
