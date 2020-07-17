@@ -1,14 +1,14 @@
+using LocalLookupMVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using LocalLookupMVC.Models;
-using System;
 
 namespace LocalLookupMVC.Controllers
 {
@@ -47,20 +47,21 @@ namespace LocalLookupMVC.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Create(Business business, int BusinessId)
+        public async Task<ActionResult> Create(Business business, int BusinessId)
         {
-            Business.Post(business);
+            await Business.Post(business);
             return RedirectToAction("Index");
         }
 
         public async Task<ActionResult> Details(int id)
         {
             Business thisBusiness = Business.GetDetails(id);
-            if(thisBusiness.CityId != 0)
+            if (thisBusiness.CityId != 0)
             {
                 thisBusiness.City = City.GetDetails(thisBusiness.CityId);
             }
-            else{
+            else
+            {
                 thisBusiness.City = new City();
             }
             return View(thisBusiness);
@@ -70,11 +71,12 @@ namespace LocalLookupMVC.Controllers
         public ActionResult Edit(int id)
         {
             Business thisBusiness = Business.GetDetails(id);
-            if(thisBusiness.CityId != 0)
+            if (thisBusiness.CityId != 0)
             {
                 thisBusiness.City = City.GetDetails(thisBusiness.CityId);
             }
-            else{
+            else
+            {
                 thisBusiness.City = new City();
             }
             ViewBag.CityId = new SelectList(City.GetCities().AsEnumerable(), "CityId", "Name");
@@ -82,9 +84,9 @@ namespace LocalLookupMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Business business, int CityId)
+        public async Task<ActionResult> Edit(Business business, int CityId)
         {
-            Business.Post(business);
+            await Business.Post(business);
             return RedirectToAction("Index");
         }
 
@@ -97,12 +99,11 @@ namespace LocalLookupMVC.Controllers
 
         [Authorize]
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Business.Delete(id);
+            await Business.Delete(id);
             return RedirectToAction("Index");
         }
-
 
     }
 }

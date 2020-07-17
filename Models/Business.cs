@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 namespace LocalLookupMVC.Models
 {
     public class Business
@@ -20,7 +20,6 @@ namespace LocalLookupMVC.Models
             var result = apiCallTask.Result;
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
             List<Business> BusinessList = JsonConvert.DeserializeObject<List<Business>>(jsonResponse.ToString());
-
             return BusinessList;
         }
 
@@ -28,27 +27,26 @@ namespace LocalLookupMVC.Models
         {
             var apiCallTask = BusinessApiHelper.Get(id);
             var result = apiCallTask.Result;
-
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
             Business business = JsonConvert.DeserializeObject<Business>(jsonResponse.ToString());
             return business;
         }
 
-        public static void Post(Business business)
+        public static async Task Post(Business business)
         {
             string jsonBusiness = JsonConvert.SerializeObject(business);
-            var apiCallTask = BusinessApiHelper.Post(jsonBusiness);
+            await BusinessApiHelper.Post(jsonBusiness);
         }
 
-        public static void Put(Business business)
+        public static async Task Put(Business business)
         {
             string jsonBusiness = JsonConvert.SerializeObject(business);
-            var apiCallTask = BusinessApiHelper.Put(business.BusinessId, jsonBusiness);
+            await BusinessApiHelper.Put(business.BusinessId, jsonBusiness);
         }
 
-        public static void Delete(int id)
+        public static async Task Delete(int id)
         {
-            var apiCallTask = BusinessApiHelper.Delete(id);
+            await BusinessApiHelper.Delete(id);
         }
 
     }
