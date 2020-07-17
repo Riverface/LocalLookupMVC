@@ -33,10 +33,11 @@ namespace LocalLookupMVC.Models
             var apiCallTask = CityApiHelper.Get(id);
             if (!apiCallTask.Status.Equals(200))
             {
-                return new City { Name = "Change Me, I'm broken", CityId = 0 };
+                return new City { Name = "I AM ERROR", CityId = 0 };
             }
             var result = apiCallTask.Result;
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+
             City city = JsonConvert.DeserializeObject<City>(jsonResponse.ToString());
             return city;
         }
