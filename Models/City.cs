@@ -31,7 +31,7 @@ namespace LocalLookupMVC.Models
         public static City GetDetails(int id)
         {
             var apiCallTask = CityApiHelper.Get(id);
-            if (!apiCallTask.Status.Equals(200))
+            if (apiCallTask.Status.Equals(204))
             {
                 return new City { Name = "I AM ERROR", CityId = 0 };
             }
@@ -42,21 +42,21 @@ namespace LocalLookupMVC.Models
             return city;
         }
 
-        public static void Post(City city)
+        public static async Task Post(City city)
         {
             string jsonCity = JsonConvert.SerializeObject(city);
-            var apiCallTask = CityApiHelper.Post(jsonCity);
+            await CityApiHelper.Post(jsonCity);
         }
 
-        public static void Put(City city)
+        public static async Task Put(City city)
         {
             string jsonCity = JsonConvert.SerializeObject(city);
-            var apiCallTask = CityApiHelper.Put(city.CityId, jsonCity);
+            await CityApiHelper.Put(city.CityId, jsonCity);
         }
 
-        public static void Delete(int id)
+        public static async Task Delete(int id)
         {
-            var apiCallTask = CityApiHelper.Delete(id);
+            await CityApiHelper.Delete(id);
         }
     }
 }

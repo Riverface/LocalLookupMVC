@@ -4,6 +4,9 @@
 Allows the viewer to Create, Read, Edit, and Delete things in the database through the API.
 Use with Local Lookup API!
 
+Pagination and Authentication with User Accounts are supported.
+
+
 ## Setup/Installation Requirements
 
 * Clone or Download repo to a directory.

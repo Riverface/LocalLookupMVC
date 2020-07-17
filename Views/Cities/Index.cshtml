@@ -45,7 +45,7 @@
       Page: @ViewBag.page
     </li>
     <p>
-      @Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1})
+      @Html.ActionLink("Back a Page", "Index", "Cities", new{page = ViewBag.page - 1, pageCount = ViewBag.pageCount})
     </p>
     <p>
       @Html.ActionLink("5", "Index", "Cities", new{page = ViewBag.page, pageCount = 5})
@@ -57,7 +57,7 @@
       @Html.ActionLink("10", "Index", "Cities", new{page = ViewBag.page, pageCount = 10})
     </p>
     <p>
-      @Html.ActionLink("Next Page", "Index", "Cities", new{page = ViewBag.page + 1})
+      @Html.ActionLink("Next Page", "Index", "Cities", new{page = ViewBag.page + 1, pageCount = ViewBag.pageCount})
     </p>
   </div>
 </div>

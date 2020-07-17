@@ -23,7 +23,7 @@ namespace LocalLookupMVC.Controllers
             _db = db;
         }
 
-        public IActionResult Index(int page = 1, int pageCount = 2)
+        public IActionResult Index(int page = 1, int pageCount = 5)
         {
             IQueryable<Object> charQuery = City.GetCities().AsQueryable();
             if (page <= 0)
@@ -46,9 +46,9 @@ namespace LocalLookupMVC.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Create(City city, int CityId)
+        public async Task<ActionResult> Create(City city, int CityId)
         {
-            City.Post(city);
+            await City.Post(city);
             return RedirectToAction("Index");
         }
 
@@ -67,10 +67,10 @@ namespace LocalLookupMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(City city)
+        public async Task<ActionResult> Edit(City city)
         {
 
-            City.Put(city);
+            await City.Put(city);
             return RedirectToAction("Index");
         }
 
@@ -83,9 +83,9 @@ namespace LocalLookupMVC.Controllers
 
         [Authorize]
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            City.Delete(id);
+            await City.Delete(id);
             return RedirectToAction("Index");
         }
     }
