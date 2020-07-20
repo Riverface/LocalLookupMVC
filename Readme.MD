@@ -6,6 +6,20 @@ Use with Local Lookup API!
 
 Pagination and Authentication with User Accounts are supported.
 
+## Further Exploration
+
+# Content Pages
+
+Pages of Businesses and Cities are split up depending on the user's selection of 10, 50, or 100.
+
+The program retains information between content pages so that the user is always seeing the same amount of content.
+
+# Identity/Authentication
+Users can register and Log In.
+
+Unregistered users can Read entries.
+Registered users can Create, Read, Update, and Delete entries.
+
 
 ## Setup/Installation Requirements
 
