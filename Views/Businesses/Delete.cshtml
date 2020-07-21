@@ -19,5 +19,16 @@
     {
       <input type="submit" value="Delete" />
     }
+          @if(User.Identity.IsAuthenticated)
+      {
+        <div class='entryLabel propertyLabel'>
+          Business Links
+        </div>
+        <div class='property'>
+          <p>@Html.ActionLink("Back to Businesses", "Index")</p>
+          <p>@Html.ActionLink("Edit Business", "Edit", new { id = Model.BusinessId })</p>
+          <p>@Html.ActionLink("Details of Business", "Details", new { id = Model.BusinessId })</p>
+        </div>
+      }
   </div>
 </div>
