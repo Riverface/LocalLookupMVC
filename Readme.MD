@@ -13,16 +13,28 @@ Pagination and Authentication with User Accounts are supported.
 Pages of Businesses and Cities are split up depending on the user's selection of 10, 50, or 100.
 
 The program retains information between content pages so that the user is always seeing the same amount of content.
+## Proprietary Class Definitions (PCDs)
 
- `page` in the pagination class is The Current Page.
- 
- `pageCount` in the pagination class is how many items are on the page. 
- 
- Both variables can be changed in the Controllers and Views (Index).
+### Pagination
 
+#### Frontend
+>
+> >`page` in the pagination class is The Current Page.
+> >
+> >`pageCount` in the pagination class is how many items are on the page. 
+> 
+> Both variables can be changed in each Index through Views and Controllers.
+Pagination model is generic, salvage it for your own project if you want :^J
+
+
+>#### User
+>
+>>Page: Int that controls what page you're on
+>>
+>>PageCount: Int that controls how many entries of `business` or `city` are on each page.
 
 ## Identity/Authentication
-Users can register and Log In.
+Users can Register and Log In.
 
 Unregistered users can Read entries.
 Registered users can Create, Read, Update, and Delete entries.
@@ -32,42 +44,56 @@ Registered users can Create, Read, Update, and Delete entries.
 
 ### Businesses
 
+
 #### Create
 Allows creation of a Businesses.
 `/Businesses/create`
+Sends a POST request to `/api/Businesses`.
+
 #### Read/Details
 Allows Viewing of Business entries and their details.
 `/Businesses/{id}`
+Sends a GET request to `/api/Businesses`.
+
 #### Update
 Allows editing of Businesses.
 `Businesses/{id}/edit`
-####  Delete
-`Businesses/{id}/delete`
-Deletes entries of Businesses.
+Sends a PUT request to `/api/Businesses`.
 
+####  Delete
+Deletes entries of Businesses.
+`Businesses/{id}/delete`
+Sends a DELETE request to `/api/Businesses`.
 
 ### Cities
 
-#### Create
-Allows creation of a Cities.
-`/cities/create`
-#### Read/Details
-Allows Viewing of entries and their details.
-`/cities/{id}`
-#### Update
-Allows editing of Cities.
-`cities/{id}/edit`
-####  Delete
-`cities/{id}/delete`
-Deletes entries of Cities.
+>#### Create
+>Allows creation of a cities.
+>`/cities/create`
+>Sends a POST request to `/api/cities`.
+
+>#### Read/Details
+>Allows Viewing of Business entries and their details.
+>`/cities/{id}`
+>Sends a GET request to `/api/cities`.
+
+>#### Update
+>Allows editing of cities.
+>`cities/{id}/edit`
+>Sends a PUT request to `/api/cities`.
+
+>####  Delete
+>Deletes entries of cities.
+>`cities/{id}/delete`
+>Sends a DELETE request to `/api/cities`.
 
 ### Accounts
 
-#### Register
-Allows the user to Register an account.
+>#### Register
+>Allows the user to Register an account.
 
-#### Login
-Allows the user to Log into an existing account.
+>#### Login
+>Allows the user to Log into an existing account.
 
 
 

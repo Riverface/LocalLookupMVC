@@ -31,7 +31,6 @@ namespace LocalLookupMVC.Models
             Business business = JsonConvert.DeserializeObject<Business>(jsonResponse.ToString());
             return business;
         }
-
         public static async Task Post(Business business)
         {
             string jsonBusiness = JsonConvert.SerializeObject(business);

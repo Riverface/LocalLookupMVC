@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace LocalLookupMVC.Controllers
 {
     public class BusinessesController : Controller
@@ -56,24 +57,27 @@ namespace LocalLookupMVC.Controllers
         public async Task<ActionResult> Details(int id)
         {
             Business thisBusiness = Business.GetDetails(id);
-            if (thisBusiness.CityId != 0)
+            City tempCity = await City.GetDetails(thisBusiness.CityId); 
+            
+            if (tempCity.CityId != 0)
             {
-                thisBusiness.City = City.GetDetails(thisBusiness.CityId);
+                thisBusiness.City = await City.GetDetails(thisBusiness.CityId);
             }
             else
             {
-                thisBusiness.City = new City();
+                thisBusiness.CityId = 0;
             }
+            await Business.Put(thisBusiness);
             return View(thisBusiness);
         }
 
         [Authorize]
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
             Business thisBusiness = Business.GetDetails(id);
             if (thisBusiness.CityId != 0)
             {
-                thisBusiness.City = City.GetDetails(thisBusiness.CityId);
+                thisBusiness.City = await City.GetDetails(thisBusiness.CityId);
             }
             else
             {

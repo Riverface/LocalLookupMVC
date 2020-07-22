@@ -52,16 +52,16 @@ namespace LocalLookupMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            City thisCity = City.GetDetails(id);
+            City thisCity = await City.GetDetails(id);
             return View(thisCity);
         }
 
         [Authorize]
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            City thisCity = City.GetDetails(id);
+            City thisCity = await City.GetDetails(id);
 
             return View(thisCity);
         }
@@ -75,9 +75,9 @@ namespace LocalLookupMVC.Controllers
         }
 
         [Authorize]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            City thisCity = City.GetDetails(id);
+            City thisCity = await City.GetDetails(id);
             return View(thisCity);
         }
 
