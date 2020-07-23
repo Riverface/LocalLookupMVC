@@ -62,7 +62,6 @@ The program retains information between content pages so that the`User` is alway
 
 ### ` Businesses`
 
-
 #### Create
 
 >Allows creation of a ` Businesses`.
